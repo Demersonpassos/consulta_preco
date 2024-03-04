@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa de Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #suggestions {
+            margin-top: 10px;
+        }
+
+        #suggestions p {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" id="searchInput" placeholder="Pesquisar produtos">
-    <div id="suggestions"></div>
-
+    <div class="container">
+        <h1>Pesquisa de Produtos</h1>
+        <input type="text" id="searchInput" placeholder="Pesquisar produtos">
+        <div id="suggestions"></div>
+    </div>
+    
     <script>
-        // Função para carregar o conteúdo do arquivo de texto
         function loadProducts() {
-            // Aqui você deve adicionar o conteúdo do arquivo produtos.txt
             const produtosTxt = `
             FREE STYLE 2° GEN	R$	3.499,00
             FONE WIRELESS GAL BUDS LIVE	R$	599
@@ -104,23 +144,16 @@
 
             `;
 
-            // Divide o conteúdo do arquivo de texto em linhas e remove linhas em branco
             const products = produtosTxt.split('\n').map(line => line.trim()).filter(Boolean);
 
-            // Obtém a entrada do campo de pesquisa
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.trim().toLowerCase();
-
-                // Filtra os produtos que contêm a entrada do usuário
                 const matchingProducts = products.filter(product => product.toLowerCase().includes(searchTerm));
-
-                // Exibe as sugestões
                 displaySuggestions(matchingProducts);
             });
         }
 
-        // Função para exibir as sugestões
         function displaySuggestions(suggestions) {
             const suggestionsDiv = document.getElementById('suggestions');
             suggestionsDiv.innerHTML = '';
@@ -132,7 +165,6 @@
             });
         }
 
-        // Chama a função para carregar os produtos quando a página é carregada
         window.onload = loadProducts;
     </script>
 </body>

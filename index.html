@@ -11,15 +11,22 @@
             margin: 0;
             padding: 0;
         }
+        h1{
+            color: white;
+            text-align: center;
+            
+        }
 
         .container {
             max-width: 600px;
+            
             margin: 50px auto;
-            background-color: #fff;
+            background-image: linear-gradient(to top, rgb(77, 76, 76), rgb(34, 34, 34));
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
             box-sizing: border-box;
+            font-weight: bold;
         }
 
         input[type="text"] {
@@ -37,7 +44,7 @@
 
         #suggestions p {
             margin: 5px 0;
-            padding: 8px;
+            padding: 7px;
             background-color: #f9f9f9;
             border-radius: 4px;
             border: 1px solid #ddd;
@@ -46,7 +53,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Pesquisa de Produtos</h1>
+        <h1>Pesquisa de Preços de Produtos</h1>
         <input type="text" id="searchInput" placeholder="Pesquisar produtos">
         <div id="suggestions"></div>
     </div>

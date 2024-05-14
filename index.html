@@ -62,7 +62,7 @@
     <div class="container">
         <h1>Preços de Produtos</h1>
         <p class="atualizado">
-            Atualizado: 07 / 05 / 2024
+            Atualizado: 14 / 05 / 2024
         </p>
         <input type="text" id="searchInput" placeholder="Pesquisar produtos">
         <div id="suggestions"></div>
@@ -72,89 +72,90 @@
     <script>
         function loadProducts() {
             const produtosTxt = `
-            ADAPTADOR DE CABO DE ENERGIA - Free Style 2° Gen - R$ 3.999,00
-            Fone Wireless GAL Buds2 - R$ 399
-            Fone Wireless GAL Buds FE - R$ 549
-            Fone Wireless GAL Buds2 Pro - R$ 999
-            Galaxy Fit3 - R$ 499
-            Galaxy Watch 4 40mm BT - R$ 799
-            Galaxy Watch 4 40mm LTE - R$ 1.249,00
-            Galaxy Watch 4 Classic 42mm BT - R$ 1.499,00
-            Galaxy Watch 4 Classic 46mm BT - R$ 1.599,00
-            Galaxy Watch 4 Classic 46mm LTE - R$ 1.799,00
-            Galaxy Watch 5 40mm BT - R$ 1.099,00
-            Galaxy Watch 5 40mm LTE - R$ 1.499,00
-            Galaxy Watch 5 44mm BT - R$ 1.199,00
-            Galaxy Watch 5 Pro 45mm BT - R$ 1.899,00
-            Galaxy Watch 6 BT 40mm - R$ 1.249,00
-            Galaxy Watch 6 LTE 40mm - R$ 1.549,00
-            Galaxy Watch 6 BT 44mm - R$ 1.399,00
-            Galaxy Watch 6 LTE 44mm - R$ 1.799,00
-            Galaxy Watch 6 Classic LTE 43mm - R$ 1.799,00
-            Galaxy Watch 6 Classic LTE 47mm - R$ 1.999,00
-            Smart 4G GAL A03 Core - R$ 499
-            Smart 4G GAL A03 - R$ 899
-            Smart 4G GAL A05 (Parcelamento até 5x) - R$ 849
-            Smart 4G GAL A05's (Parcelamento até 8x) - R$ 1.049,00
-            Smart 4G GAL A14 64GB - R$ 899
-            Smart 4G GAL A14 128GB - R$ 999
-            Smart 4G GAL A15 128GB - R$ 1.149,00
-            Smart 4G GAL A15 256GB - R$ 1.399,00
-            Smart 4G GAL A22 - R$ 1.199,00
-            Smart 4G GAL A23 - R$ 1.199,00
-            Smart 5G GAL A14 64GB - R$ 1.049,00
-            Smart 5G GAL A14 128GB - R$ 1.199,00
-            Smart 5G GAL A15 128GB - R$ 1.399,00
-            Smart 5G GAL A15 256GB - R$ 1.699,00
-            Smart 5G GAL A23 - R$ 1.199,00
-            Smart 5G GAL A25 256GB - R$ 1.899,00
-            Smart 5G GAL A34 256GB - R$ 1.799,00
-            Smart 5G GAL A35 128GB - R$ 2.399,00
-            Smart 5G GAL A35 256GB - R$ 2.699,00
-            Smart 5G GAL A54 256GB - R$ 2.399,00
-            Smart 5G GAL A55 128GB - R$ 2.699,00
-            Smart 5G GAL A55 256GB - R$ 3.199,00
-            Smart 5G GAL S21 FE 128GB - R$ 1.999,00
-            Smart 5G GAL S22 128GB - R$ 4.599,00
-            Smart 5G GAL S22+ 128GB - R$ 4.499,00
-            Smart 5G GAL S23 128GB - R$ 3.599,00
-            Smart 5G GAL S23 256GB - R$ 3.999,00
-            Smart 5G GAL S23+ 512GB - R$ 5.599,00
-            Smart 5G GAL S23U 512GB - R$ 5.999,00
-            Smart 5G GAL S23U 1TB - R$ 7.999,00
-            Smart 5G GAL S23 FE 256GB - R$ 3.499,00
-            Smart GAL 5G S24 256GB - R$ 6.499,00
-            Smart GAL 5G S24+ 512GB - R$ 7.999,00
-            Smart GAL 5G S24 ULTRA 512GB - R$ 10.999,00
-            Smart GAL 5G S24 ULTRA 1TB - R$ 12.999,00
-            Smart 5G GAL Z FLIP 4 128GB - R$ 3.499,00
-            Smart 5G Z FLIP 5 512GB - R$ 5.499,00
-            Smart 5G Z FOLD 5G 512GB - R$ 8.599,00
-            Tab GAL A7 Lite WiFi 32GB - R$ 879
-            Tab GAL A9+ 64GB WiFi - R$ 1.499,00
-            Tab GAL A9+ 64GB 5G - R$ 1.699,00
-            Tab GAL S6 Lite 24' 64GB WiFi (P620) - R$ 2.499,00
-            Tab GAL S6 Lite 24' 64GB 4G (P625) - R$ 2.699,00
-            Tab GAL S7 FE - R$ 2.999,00
-            Tab GAL S8 - R$ 3.999,00
-            Tab GAL S8+ - R$ 4.999,00
-            Tab GAL S8 Ultra - R$ 6.999,00
-            Tab GAL S9 WiFi 256GB - R$ 5.499,00
-            Tab GAL S9+ 512GB - R$ 6.799,00
-            Tab GAL S9 Ultra 512GB - R$ 8.299,00
-            Tab GAL S9 FE 128GB WiFi - R$ 2.999,00
-            Tab GAL S9 FE 5G 128GB - R$ 3.299,00
-            Tab GAL S9+ FE WiFi 128GB - R$ 3.299,00
-            Not GAL SSG BOOK GO PRA SNAP 7C (NP340XLA-K06BR) - R$ 1.749,00
-            Not GAL SSG BOOK I5 1.4/512SSD/13.3 (NP550XDA-KH3BR) - R$ 3.599,00
-            Not SSG BOOK 2 360 CORE I7 16G/512G/13'' (NP730QED-KS2BR) - R$ 4.999,00
-            Not GAL BOOK 3 360 CORE I5 8G/256G/13" (NP730QFG-KF2BR) - R$ 5.999,00
-            Not GAL BOOK 3 360 CORE I7 16G/1TB/15" (NP750QFG-KS2BR) - R$ 7.799,00
-            Not GAL BOOK 3 ULTRA CORE I7 32G/1TB/16" (NP960XFH-XA1BR) - R$ 11.999,00
-            Not GAL BOOK4 360 Core 7/16G/1TB/Intel Full HD 15.6 - (NP750QGK-KG1BR) - R$ 8.999,00
-            Not GAL BOOK4 Pro Core 7/16G/512GB SSD/FHD/14 - (NP940XGK-KG1BR) - R$ 9.999,00
-            Gal Smart Tag2 1und - R$ 259
-            Adaptador de Cabo de Energia - B para C/EE-GN930BWEGBR - R$ 35
+            FREE STYLE 2° GEN - R$ 3.999,00
+            FONE WIRELESS GAL BUDS2 - R$ 399
+            FONE WIRELESS GAL BUDS FE - R$ 549
+            FONE WIRELESS GAL BUDS2 PRO - R$ 999
+            GALAXY FIT3 - R$ 499
+            GALAXY WATCH 4 40MM BT - R$ 499
+            GALAXY WATCH 4 40MM LTE - R$ 999
+            GALAXY WATCH 4 CLASSIC 42MM BT - R$ 1.199,00
+            GALAXY WATCH 4 CLASSIC 46MM BT - R$ 1.299,00
+            GALAXY WATCH 4 CLASSIC 46MM LTE - R$ 1.599,00
+            GALAXY WATCH 5 40MM BT - R$ 849
+            GALAXY WATCH 5 40MM LTE - R$ 1.299,00
+            GALAXY WATCH 5 44MM BT - R$ 999
+            GALAXY WATCH 5 PRO 45MM BT - R$ 1.899,00
+            GALAXY WATCH 6 BT 40mm - R$ 1.249,00
+            GALAXY WATCH 6 LTE 40mm - R$ 1.549,00
+            GALAXY WATCH 6 BT 44mm - R$ 1.399,00
+            GALAXY WATCH 6 LTE 44mm - R$ 1.799,00
+            GALAXY WATCH 6 Classic LTE 43mm - R$ 1.799,00
+            GALAXY WATCH 6 Classic LTE 47mm - R$ 1.999,00
+            SMART 4G GAL A03 CORE - R$ 499
+            SMART 4G GAL A03 - R$ 899
+            SMART 4G GAL A05 (PARCELAMENTO ATÉ 5X) - R$ 849
+            SMART 4G GAL A05'S (PARCELAMENTO ATÉ 8X) - R$ 1.049,00
+            SMART 4G GAL A14 64G - R$ 899
+            SMART 4G GAL A14 128G - R$ 999
+            SMART 4G GAL A15 128G - R$ 1.149,00
+            SMART 4G GAL A15 256GB - R$ 1.399,00
+            SMART 4G GAL A22 - R$ 1.199,00
+            SMART 4G GAL A23 - R$ 1.199,00
+            SMART 5G GAL A14 64GB - R$ 1.049,00
+            SMART 5G GAL A14 128GB - R$ 1.199,00
+            SMART 5G GAL A15 128G - R$ 1.399,00
+            SMART 5G GAL A15 256GB - R$ 1.699,00
+            SMART 5G GAL A23 - R$ 1.199,00
+            SMART 5G GAL A25 256GB - R$ 1.899,00
+            SMART 5G GAL A34 256G - R$ 1.799,00
+            SMART 5G GAL A35 128G - R$ 2.399,00
+            SMART 5G GAL A35 256G - R$ 2.699,00
+            SMART 5G GAL A54 256G - R$ 2.399,00
+            SMART 5G GAL A55 128G - R$ 2.599,00
+            SMART 5G GAL A55 256G - R$ 2.999,00
+            SMART 5G GAL S21 FE 128GB - R$ 1.999,00
+            SMART 5G GAL S22 128GB - R$ 4.599,00
+            SMART 5G GAL S22+ 128GB - R$ 4.499,00
+            SMART 5G GAL S23 128GB - R$ 3.599,00
+            SMART 5G GAL S23 256GB - R$ 3.999,00
+            SMART 5G GAL S23+ 512GB - R$ 5.599,00
+            SMART 5G GAL S23U 512GB - R$ 5.999,00
+            SMART 5G GAL S23U 1TB - R$ 7.999,00
+            SMART 5G GAL S23 FE 256GB - R$ 3.499,00
+            SMART GAL 5G S24 256GB - R$ 6.499,00
+            SMART GAL 5G S24+ 512GB - R$ 7.999,00
+            SMART GAL 5G S24 ULTRA 512GB - R$ 10.999,00
+            SMART GAL 5G S24 ULTRA 1TB - R$ 12.999,00
+            SMART 5G GAL Z FLIP 4 128GB - R$ 3.499,00
+            SMART 5G Z FLIP 5 512GB - R$ 5.499,00
+            SMART 5G Z FOLD 5G 512GB - R$ 8.599,00
+            TAB GAL A 7 LITE WIFI 32GB - R$ 879
+            TAB GAL A9+ 64GB WIFI - R$ 1.499,00
+            TAB GAL A9+ 64GB 5G - R$ 1.699,00
+            TAB GAL S6 LITE 24' 64GB WIFI (P620) - R$ 2.499,00
+            TAB GAL S6 LITE 24' 64GB 4G (P625) - R$ 2.699,00
+            TAB GAL S7 FE - R$ 2.999,00
+            TAB GAL S8 - R$ 3.999,00
+            TAB GAL S8+ - R$ 4.999,00
+            TAB GAL S8 ULTRA - R$ 6.999,00
+            TAB GAL S9 WIFI 256GB - R$ 5.099,00
+            TAB GAL S9+ 512GB - R$ 5.799,00
+            TAB GAL S9 ULTRA 512GB - R$ 6.799,00
+            TAB GAL S9 FE 128GB WIFI - R$ 2.999,00
+            TAB GAL S9 FE 5G 128GB - R$ 3.499,00
+            TAB GAL S9+ FE WIFI 128GB - R$ 3.899,00
+            NOT GAL SSG BOOK GO PRA SNAP 7C (NP340XLA-K06BR) - R$ 1.749,00
+            NOT GAL BOOK2 i5/W11/8GB/256GBSSD - (NP550XED-KF2BR) - R$ 3.299,00
+            NOT GAL SSG BOOK I5 1.4/512SSD/13.3 (NP550XDA-KH3BR) - R$ 3.599,00
+            NOT SSG BOOK 2 360 CORE I7 16G/512G/13'' (NP730QED-KS2BR) - R$ 4.999,00
+            NOT GAL BOOK 3 360 CORE I5 8G/256G/13" (NP730QFG-KF2BR) - R$ 5.999,00
+            NOT GAL BOOK 3 360 CORE I7 16G/1TB/15" (NP750QFG-KS2BR) - R$ 7.799,00
+            NOT GAL BOOK 3 ULTRA CORE I7 32G/1TB/16" (NP960XFH-XA1BR) - R$ 11.999,00
+            NOT GAL BOOK4 360 Core 7/16G/1TB/Intel Full HD 15.6 - (NP750QGK-KG1BR) - R$ 8.999,00
+            NOT GAL BOOK4 Pro Core 7/16G/512GB SSD/FHD/14 - (NP940XGK-KG1BR) - R$ 9.999,00
+            GAL SMART TAG2 1UND - R$ 259
+            ADAPTADOR DE CABO DE ENERGIA - B PARA C/EE-GN930BWEGBR - R$ 35
             `;
 
             const products = produtosTxt.split('\n').map(line => line.trim()).filter(Boolean);
